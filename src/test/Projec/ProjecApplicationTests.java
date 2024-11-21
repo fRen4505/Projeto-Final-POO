@@ -1,4 +1,4 @@
-package Java.projetoMaromo.Projec;
+package Projec;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
