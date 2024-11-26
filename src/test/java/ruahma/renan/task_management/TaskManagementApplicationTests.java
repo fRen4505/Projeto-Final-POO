@@ -1,10 +1,10 @@
-package Java.projetoMaromo.Projec;
+package ruahma.renan.task_management;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjecApplicationTests {
+class TaskManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
