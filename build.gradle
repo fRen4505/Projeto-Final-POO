@@ -8,14 +8,15 @@ group = 'ruahma.renan'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(22)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(22)
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()  // Repositório para dependências do Maven
 }
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

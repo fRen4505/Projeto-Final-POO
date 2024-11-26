@@ -1,1 +1,15 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()  // Repositório para plugins
+        mavenCentral()        // Repositório para dependências
+    }
+}
+
 rootProject.name = 'task_management'
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven { url 'https://adoptium.net' }  // Repositório para JDKs da Adoptium (AdoptOpenJDK)
+    }
+}
