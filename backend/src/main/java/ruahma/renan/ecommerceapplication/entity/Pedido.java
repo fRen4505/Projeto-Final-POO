@@ -1,4 +1,4 @@
-package ruahma.renan.ecommerceapplication.model;
+package ruahma.renan.ecommerceapplication.entity;
 
 
 import java.time.LocalDateTime;
@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import ruahma.renan.ecommerceapplication.model.StatusPedido;
 
 @Data
 @Entity
@@ -26,7 +27,7 @@ public class Pedido {
     
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuario usuario;
+    private User usuario;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private ArrayList<ItemPedido> itens;

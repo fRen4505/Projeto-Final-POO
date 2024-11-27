@@ -1,4 +1,4 @@
-package ruahma.renan.ecommerceapplication.model;
+package ruahma.renan.ecommerceapplication.entity;
 
 
 import jakarta.persistence.Column;

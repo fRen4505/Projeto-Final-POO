@@ -1,7 +1,7 @@
-package ruahma.renan.ecommerceapplication.model;
+package ruahma.renan.ecommerceapplication.entity;
+
 
 import java.util.ArrayList;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

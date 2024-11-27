@@ -1,4 +1,4 @@
-package ruahma.renan.ecommerceapplication.model;
+package ruahma.renan.ecommerceapplication.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Usuario {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

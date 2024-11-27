@@ -20,8 +20,10 @@ function App() {
         </p>
       </div>
 
-      <div className="login-image-container"> 
-      <img src={Logo} alt='Logotipo do App' />
+      <div className="container-login-image-container">
+        <div className="login-image-container">
+          <img src={Logo} alt='Logotipo do App' />
+        </div>
       </div>
     </div>
   )

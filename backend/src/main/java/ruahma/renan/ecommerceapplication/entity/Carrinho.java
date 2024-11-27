@@ -1,4 +1,4 @@
-package ruahma.renan.ecommerceapplication.model;
+package ruahma.renan.ecommerceapplication.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class ItemPedido {
+public class Carrinho {
     
 
     @Id
@@ -18,15 +18,12 @@ public class ItemPedido {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "pedido_id", nullable = false)
-    private Pedido pedido;
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private User usuario;
 
     @ManyToOne
     @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
 
     private Integer quantidade;
-
-    private Double preco;
-
 }
