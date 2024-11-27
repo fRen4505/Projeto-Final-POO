@@ -7,7 +7,7 @@ public class Usuario {
     private Integer idUsuario;
     private String nome;
     private String email;
-    private ArrayList<Livro> emprestados = new ArrayList<Livro>();
+    private ArrayList<Items> comprados = new ArrayList<Items>();
 
     //get de id
     public Integer getIdUser() {
@@ -25,14 +25,14 @@ public class Usuario {
     }
     
     //get set de lista de emprestados
-    public void setEmprestados(Livro livro){
-        this.emprestados.add(livro);
+    public void setComprados(Items livro){
+        this.comprados.add(livro);
     }
-    public ArrayList<Livro> getEmprestados(){
-        return emprestados;
+    public ArrayList<Items> getComprados(){
+        return comprados;
     }
-    public Livro getLivro(Integer i){
-        return emprestados.get(i);
+    public Items getLivro(Integer i){
+        return comprados.get(i);
     }
 
     //construtor
