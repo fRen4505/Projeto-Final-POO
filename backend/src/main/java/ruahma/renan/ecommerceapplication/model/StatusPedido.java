@@ -1,4 +1,4 @@
-package ruahma.renan.task_management.model;
+package ruahma.renan.ecommerceapplication.model;
 
 public enum StatusPedido {
     PROCESSANDO,
