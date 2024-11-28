@@ -5,41 +5,40 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ruahma.renan.ecommerceapplication.entity.Produto;
-import ruahma.renan.ecommerceapplication.repository.ProdutoRepository;
+import ruahma.renan.ecommerceapplication.entity.Pedido;
+import ruahma.renan.ecommerceapplication.repository.PedidoRepository;
+
 
 @Service
 public class PedidoService {
     
+    
     @Autowired
-    private ProdutoRepository productRepository;
+    private PedidoRepository pedidoRepository;
 
-    // Lista todos os produtos
-    public List<Produto> listarTodos() {
-        return productRepository.findAll();
+    public List<Pedido> listarTodos() {
+        return pedidoRepository.findAll();
     }
 
-    // Busca um produto pelo ID
-    public Produto buscarPorId(Long id) {
-        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+    public Pedido buscarPorId(Long id) {
+        return pedidoRepository.findById(id).orElseThrow(() -> new RuntimeException("Pedido não encontrado"));
     }
 
-    // Cria um novo produto
-    public Produto salvarProduto(Produto product) {
-        return productRepository.save(product);
+    public Pedido salvarPedido(Pedido pedido) {
+        return pedidoRepository.save(pedido);
     }
 
-    // Atualiza um produto
-    public Produto atualizarProduto(Long id, Produto product) {
-        Produto existente = buscarPorId(id);
-        existente.setName(product.getName());
-        existente.setPreco(product.getPreco());
-        existente.setDescricao(product.getDescricao());
-        return productRepository.save(existente);
+    public Pedido atualizarPedido(Long id, Pedido pedido) {
+        Pedido existente = buscarPorId(id);
+        // Atualiza os campos do pedido
+        existente.setStatus(pedido.getStatus());
+        existente.setItens(pedido.getItens());
+        existente.setTotal(pedido.getTotal());
+
+        return pedidoRepository.save(existente);
     }
 
-    // Deleta um produto
-    public void deletarProduto(Long id) {
-        productRepository.deleteById(id);
+    public void deletarPedido(Long id) {
+        pedidoRepository.deleteById(id);
     }
 }
