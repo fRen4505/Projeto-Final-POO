@@ -27,6 +27,8 @@ public class Produto {
 
     private String imagemUrl;
 
+    private String descricao;
+
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
