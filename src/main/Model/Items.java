@@ -5,7 +5,7 @@ public class Items {
     private String nome;
     private String descricao;
     private Integer quantidade;
-    private Boolean disponivel;
+    private Boolean disponivel;// = true;
 
     //get de id
     public Integer getIDItem() {
@@ -23,7 +23,7 @@ public class Items {
     }
 
     //get set de disponivel
-    public void setDisponibilidade(){
+    private void setDisponibilidade(){
         if (quantidade >= 1) {
             this.disponivel = true;
         } else {
@@ -45,6 +45,7 @@ public class Items {
         this.nome = nomeIns;
         this.descricao = descriIns;
         this.quantidade = qntd;
+        setDisponibilidade();
     }
 
 }

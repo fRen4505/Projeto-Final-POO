@@ -15,8 +15,8 @@ public class CadastroUser extends JFrame implements ActionListener{
     private ArrayList<Usuario>users;
     private String userTipo;
     private Random rand = new Random();
-    private TextField nome, email, matri, curso, cargo, setor;
-    private JButton Aluno, Funci, Finalizar;
+    private TextField nome, email, cargo, senha;
+    private JButton Cliente, Funci, Finalizar;
     
 
     public CadastroUser(ArrayList<Usuario>userList){
@@ -28,32 +28,43 @@ public class CadastroUser extends JFrame implements ActionListener{
         setLocationRelativeTo(null);//centro da tela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //botao para finalizar cadastro
         Finalizar = new JButton("Finalizar");
         Finalizar.setSize(100, 30);
-        Finalizar.setLocation(600, 455);
+        Finalizar.setLocation(600, 555);
         Finalizar.setFocusable(false);
         Finalizar.addActionListener(this);
 
+        //campo para colocar nome
         nome = new TextField();
         nome.setSize(300, 30);
         nome.setLocation(500, 180);
         add(nome);
 
+        //campo para colocar email
         email = new TextField();
         email.setSize(300, 30);
         email.setLocation(500, 240);
         add(email);
 
-        Aluno = new JButton("Aluno");
-        Aluno.setSize(90, 30);
-        Aluno.setLocation(500, 300);
-        Aluno.setFocusable(false);
-        Aluno.addActionListener(this);
-        add(Aluno);
+        //campo para colocar senha
+        senha = new TextField();
+        senha.setSize(300, 30);
+        senha.setLocation(500, 300);
+        add(senha);
 
+        //botao para selecionar tipo de usuario como cliente
+        Cliente = new JButton("Cliente");
+        Cliente.setSize(90, 30);
+        Cliente.setLocation(500, 400);
+        Cliente.setFocusable(false);
+        Cliente.addActionListener(this);
+        add(Cliente);
+
+        //botao para selecionar tipo de usuario como vendedor
         Funci = new JButton("Funcionario");
         Funci.setSize(100, 30);
-        Funci.setLocation(600, 300);
+        Funci.setLocation(600, 400);
         Funci.setFocusable(false);
         Funci.addActionListener(this);
         add(Funci);
@@ -62,57 +73,46 @@ public class CadastroUser extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == Aluno) {
-            userTipo = "aluno";
+        if (e.getSource() == Cliente) {
+            userTipo = "cliente";
 
             Funci.setEnabled(false);
 
-            matri = new TextField();
-            matri.setSize(300, 30);
-            matri.setLocation(500, 350);
-            add(matri);
-
-            curso = new TextField();
-            curso.setSize(300, 30);
-            curso.setLocation(500, 400);
-            add(curso);
-
-            add(Finalizar);
+            if (!senha.getText().isEmpty()) {
+                add(Finalizar);
+            }
         }
 
         
         if (e.getSource() == Funci) {
             userTipo = "funcio";
 
-            Aluno.setEnabled(false);
+            Cliente.setEnabled(false);
 
             cargo = new TextField();
             cargo.setSize(300, 30);
             cargo.setLocation(500, 350);
             add(cargo);
 
-            setor = new TextField();
-            setor.setSize(300, 30);
-            setor.setLocation(500, 400);
-            add(setor);
-
-            add(Finalizar);
+            if (!senha.getText().isEmpty()) {
+                add(Finalizar);
+            }
         }
 
         if (e.getSource() == Finalizar) {
             Integer ID = rand.nextInt();
             
             switch (userTipo) {
-                case "aluno":
-                    Aluno aluno = new Aluno(ID, nome.getText(), email.getText(), matri.getText(), curso.getText());
+                case "cliente":
+                    Cliente cliente = new Cliente(ID, nome.getText(), email.getText(), senha.getText());
 
-                    users.add(aluno);
+                    users.add(cliente);
                     
                     break;
                
                 case "funcio":
                     
-                    Funcionario funci = new Funcionario(ID, nome.getText(), email.getText(), cargo.getText(), setor.getText());
+                    Funcionario funci = new Funcionario(ID, nome.getText(), email.getText(),senha.getText(), cargo.getText());
                     
                     users.add(funci);
                     

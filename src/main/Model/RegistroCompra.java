@@ -1,4 +1,4 @@
-package Projec;
+package Projec.Model;
 
 import java.time.LocalDate;
 
@@ -17,8 +17,8 @@ public class RegistroCompra {
     public Usuario getUsuario(){
         return usuario;
     }
-    public void setUsuario(int IDuser, String nome, String email){
-        this.usuario = new Usuario(IDuser, nome, email);
+    public void setUsuario(int IDuser, String nome, String email, String pass){
+        this.usuario = new Usuario(IDuser, nome, email, pass);
     }
 
     //get set livro

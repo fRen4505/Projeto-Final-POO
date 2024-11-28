@@ -11,66 +11,83 @@ import java.util.ArrayList;
 public class Solicitar extends JFrame implements ActionListener{
 
     private JPanel listaPai = new JPanel();
-    private JButton prodLista, Pegar, Deixar;
+    private JButton prodLista, Pegar, voltar;
     private ArrayList<Items> itemsCadas;
 
     public Solicitar(ArrayList<Items>livr){
         this.itemsCadas = livr;
         setSize(800, 600);
-        setTitle("Solicitar emprestimo");
+        setTitle("Comprar");
         setLayout(null);
         setResizable(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        listaPai.setSize(1300, 500);
-        listaPai.setLocation(25, 25);
-        listaPai.setLayout(new GridLayout(0, itemsCadas.size(), 15, 0));
-        listaPai.setBackground(Color.BLUE); 
-
-        add(listaPai);
-        
+        //for para adicionar items a painel de listagem 
         for (int l = 0; l < itemsCadas.size(); l++) {
-            prodLista = new JButton("Livro: "+ itemsCadas.get(l).getNome() + "\t ID: "+itemsCadas.get(l).getIDItem()+"\t -Disponivel: "+itemsCadas.get(l).getDispo()+"\n");
-            prodLista.setLocation(25, 25);
-            prodLista.setFocusable(false);
-            prodLista.setEnabled(false);
 
-            listaPai.add(prodLista);
+            //painel de produtos cadastrados e suas caracteristicas graficas
+            listaPai.setSize(900, 600);
+            listaPai.setLocation(25, 25);
+            //listaPai.setBackground(Color.BLUE); 
+
+            add(listaPai);
+
+            if ( !itemsCadas.isEmpty() ) {
+
+                //layout de painel da lista
+                listaPai.setLayout(new GridLayout(itemsCadas.size(), 0, 0, 15));
+
+                //botoes e lista de produtos
+                prodLista = new JButton("Livro: "+ itemsCadas.get(l).getDescri() + "\t ID: "+itemsCadas.get(l).getIDItem()+"\t -Disponivel: "+itemsCadas.get(l).getDispo()+"\n");
+                prodLista.setLocation(25, 25);
+                prodLista.setFocusable(false);
+                prodLista.setEnabled(false);
+
+                if ( itemsCadas.get(l).getDispo() == true ) {
+                    prodLista.setEnabled(true);
+                }
+                
+                listaPai.add(prodLista);
+
+            } else {
+                JLabel info = new JLabel();
+                info.setSize(90, 90);
+                info.setLocation(JLabel.CENTER, JLabel.CENTER);
+                listaPai.add(info);
+
+            }
+            
         }
 
-        Pegar = new JButton("Emprestar");
+        //botao para comprar
+        Pegar = new JButton("Comprar");
         Pegar.setSize(100, 50);
-        Pegar.setLocation(25, 540);
+        Pegar.setLocation(1000, 300);
         Pegar.setFocusable(false);
         Pegar.addActionListener(this);
 
-        Deixar = new JButton("Devolver");
-        Deixar.setSize(100, 50);
-        Deixar.setLocation(25, 600);
-        Deixar.setFocusable(false);
-        Deixar.addActionListener(this);
+        //botao de voltar e fechar tela
+        voltar = new JButton("Voltar");
+        voltar.setSize(70, 20);
+        voltar.setLocation(1000, 100);
+        voltar.setFocusable(false);
+        voltar.addActionListener(this);
 
+        add(voltar);
         add(Pegar);
-        add(Deixar);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== Pegar) {
-            for (int i = 0; i < listaPai.getComponentCount(); i++) {
-                if ( itemsCadas.get(i).getDispo() == true ) {
-                    listaPai.getComponent(i).setEnabled(true);
-                }
-                else{
-                    listaPai.getComponent(i).setEnabled(false);
-                }
-            }
+           
         }
-        if (e.getSource()== Deixar) {
-            
+
+        if (e.getSource()== voltar) {
+           Solicitar.super.dispose();
         }
-        
+    
     }
     
 }

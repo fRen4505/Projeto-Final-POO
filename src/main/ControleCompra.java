@@ -6,7 +6,6 @@ import Projec.View.*;
 import java.time.LocalDate;
 import java.util.Random;
 
-
 public class ControleCompra {
 
     private RegistroCompra registro;    
@@ -19,7 +18,7 @@ public class ControleCompra {
         
         registro = new RegistroCompra(ID, user, item, dataEmp);
         
-        item.setDisponibilidade();
+        //item.setDisponibilidade();
 
         System.out.println("======================================================================================");
         System.out.println("ID: "+registro.getIdCompra() + "\nItem: " + registro.getItem().getNome() +"\tComprado por:"+ registro.getUsuario().getNome() +"\n Na data: "+ registro.getDataCompra());

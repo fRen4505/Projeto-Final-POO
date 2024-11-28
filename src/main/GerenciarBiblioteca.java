@@ -3,7 +3,6 @@ package Projec;
 import Projec.Model.*;
 import Projec.View.*;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -17,26 +16,37 @@ public class GerenciarBiblioteca {
         Scanner scan = new Scanner(System.in);
         Random rand = new Random();
         ArrayList<Items> items = new ArrayList<>();
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        ControleCompra emprestimo = new ControleCompra();
+
+        ControleCompra compra = new ControleCompra();
 
         do{
+
+            for (int i = 0; i < args.length; i++) {
+                if (usuarios.get(i).equals(clientes.getClass())) {
+                    
+                }
+            }
+
+
             System.out.println("\t ITEMS:");
             for (Items i : items) {
                 System.out.print("\n =>Item: "+i.getNome() + "\t ID: "+i.getIDItem()+"\n -Disponivel: "+i.getDispo()+"\n");
             }
 
             
-            System.out.println("\n \t USUARIOS:");
-            for (Usuario u : usuarios) {
+            System.out.println("\n \t CLIENTES:");
+            for (Cliente u : clientes) {
                 System.out.print("\n =>Usuario: "+u.getNome()+" ID: "+u.getIdUser());
-                for (int i = 0; i < u.getComprados().size(); i++) {
-                    System.out.print("\n -Emprestados: "+u.getLivro(i).getNome());
+                for (int i = 0; i < clientes.size(); i++) {
+                    System.out.print("\n -Comprados: "+u.getItem(i).getNome());
                 }
             }
             
             System.out.println("\n \t \t ==>OPCOES<==");
-            System.out.println("\n C.cadastrar-se \t L.cadastrar Livro \t E.emprestar \t S.sair \n");
+            System.out.println("\n C.cadastrar-se \t L.cadastrar Item \t E.Comprar \t S.sair \n");
             opc = scan.nextLine();
 
             switch (opc) {
@@ -49,7 +59,7 @@ public class GerenciarBiblioteca {
                     break;
 
                 case "l":
-                    System.out.println("\t =>CADASTRO DE LIVROS");
+                    System.out.println("\t =>CADASTRO DE ITEM");
                     
                     CadastroItem cadIt = new CadastroItem(items);
                     cadIt.setVisible(true);
@@ -57,7 +67,7 @@ public class GerenciarBiblioteca {
                     break;
 
                 case "e":
-                    System.out.println("\t =>EMPRESTAR E DEVOLUCAO DE LIVROS");
+                    System.out.println("\t =>COMPRA DE ITEMS");
                      
                     Solicitar sol = new Solicitar(items);
                     sol.setVisible(true);
