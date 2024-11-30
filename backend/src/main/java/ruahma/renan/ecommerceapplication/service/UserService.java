@@ -40,7 +40,7 @@ public class UserService implements UserDetailsService {
         User existente = buscarPorId(id);
         existente.setName(usuario.getName());
         existente.setEmail(usuario.getEmail());
-        // Atualize outros campos aqui
+        
         return usuarioRepository.save(existente);
     }
 
