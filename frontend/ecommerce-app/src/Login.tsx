@@ -11,7 +11,7 @@ function App() {
       <div className="login-form-container">
         <h2>Login</h2>
         <div className="login-form">
-          <input type="text" placeholder="Email" />
+          <input type="email" placeholder="Email" />
           <input type="password" placeholder="Senha" />
           <button type="submit">Log in</button>
         </div>
