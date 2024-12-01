@@ -20,13 +20,13 @@ public class UserConfog {
         .roles("USER")
         .build();
 
-        UserDetails admin = User.builder()
-        .username("admin")
-        .password(encoder.encode("adminpass"))//senha codificada
-        .roles("ADMIN")
-        .build();
+        // UserDetails admin = User.builder()
+        // .username("admin")
+        // .password(encoder.encode("adminpass"))//senha codificada
+        // .roles("ADMIN")
+        // .build();
 
-        return new InMemoryUserDetailsManager(user,admin);
+        return new InMemoryUserDetailsManager(user);
 
     }
 }

@@ -5,16 +5,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SecureController {
-    
-    @GetMapping("/user/hello")
-    public String userHello(){
+    /*Verficando se */
+    @GetMapping("/home")
+    public String userHome(){
         return "Hello, User! - Autenticado";
 
 
     }
 
-    @GetMapping("admin/hello")
-    public String adminHello(){
-        return "ADM AUTENTICADO";
-    }
+    // @GetMapping("admin/hello")
+    // public String adminHello(){
+    //     return "ADM AUTENTICADO";
+    // }
 }
