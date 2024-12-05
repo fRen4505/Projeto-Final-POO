@@ -2,7 +2,7 @@ package org.example.rurenmatmarc.controller;
 
 import java.util.List;
 
-import org.apache.commons.lang3.ObjectUtils.Null;
+
 import org.example.rurenmatmarc.model.Usuario;
 import org.example.rurenmatmarc.service.UsuarioService;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 
 
 @RestController
