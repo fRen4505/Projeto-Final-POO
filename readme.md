@@ -31,7 +31,18 @@ Na qual implementa as operações básicas de **CRUD** (Criar, Ler, Atualizar e 
 Para começar, clone este repositório para o seu computador local:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+ clone https://github.com/fRen4505/Projeto-Final-POO.git
 ````
+```bash
+cd Projeto-Final-POO
+````
+````
+mvn spring-boot:run
+````
+**Não se esqueça de startar o Xampp**
+
+<hr>
+
+<hr>
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
 
